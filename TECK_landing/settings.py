@@ -55,7 +55,7 @@ ROOT_URLCONF = 'TECK_landing.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,3 +120,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Local static files (not being served ever)
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR, 'static')
+]
+
+# CDN - Content Delivery Network - "SERVING" dir
+STATIC_ROOT = os.path.join(BASE_DIR, 'my_CDN','static')
+
+
+
+#model field models.FileField or models.ImageField uploads
+MEDIA_URL='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'my_CDN','media')

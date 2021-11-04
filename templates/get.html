@@ -1,0 +1,10 @@
+{% load static %}
+<!doctype html>
+<html>
+    <body>
+<!---   <h1>{{email}}</h1> -->
+        <img src='/static/img/coding.jpg' alt='image'/>
+        <img src="{% static '/img/coding.jpg' %}" alt='image'/>
+        <h1>{{object.email}}</h1>
+    </body>
+</html>

@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
+#from emails import views
+from emails.views import email_entry_get_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('email/1/',email_entry_get_view), #static routing
+    path('email/<int:id>/', email_entry_get_view), #dynamic routing using id
+    path('admin/', admin.site.urls)
 ]
+
+if settings.DEBUG: # denotes in DEVELOPMENT not Production
+    urlpatterns+=static(settings.STATIC_URL,
+    document_root=settings.STATIC_ROOT)

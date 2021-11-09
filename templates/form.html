@@ -1,0 +1,5 @@
+<form method='POST' action='.'> {%csrf_token%}  
+<!-- csrf_token is a security measure (prevents cross site request forgery)-->
+    {{form.as_p}}
+    <input type='submit' value='Save' />
+</form>

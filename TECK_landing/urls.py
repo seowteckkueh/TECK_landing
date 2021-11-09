@@ -19,12 +19,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 #from emails import views
-from emails.views import email_entry_get_view
-
+from emails.views import (
+    email_entry_get_view,
+    email_entry_create_view
+)
 urlpatterns = [
     #path('email/1/',email_entry_get_view), #static routing
     path('email/<int:id>/', email_entry_get_view), #dynamic routing using id
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('',email_entry_create_view)
+
 ]
 
 if settings.DEBUG: # denotes in DEVELOPMENT not Production
